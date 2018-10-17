@@ -1,0 +1,89 @@
+development:
+  envlist:
+    beta:
+      ip: 39.106.146.44
+      username: deploy
+      password: xxxxxx
+      port: 8822
+      prompt: "$ "
+      max_docker_user: 10
+      docker_running_time: 36000
+      registry: https://registry.npm.taobao.org
+      xigua_front:
+        code: git@github.com:eumlab/xigua_front.git
+        branch: develop
+        docker_user:
+          liuxingqi:
+            user_port: 6000
+          xiaoheng:
+            user_port: 6001
+          cuizaiyong:
+            user_port: 6002
+          huangpan:
+            user_port: 6003
+          jevan:
+            user_port: 6004
+          zhangjiayuan:
+            user_port: 6005
+          leihong:
+            user_port: 6006
+          liujie:
+            user_port: 6007
+          pikun:
+            user_port: 6008
+          shushi:
+            user_port: 6009
+          zhanghaoran:
+            user_port: 6010
+          zhaoliangyu:
+            user_port: 6011
+          xiexin:
+            user_port: 6012
+          maxiaolong:
+            user_port: 6013
+            
+    beta01:
+      ip: 39.105.133.124
+      username: deploy
+      password: xxxxxx
+      port: 8822
+      prompt: "$ "
+      max_docker_user: 10
+      docker_running_time: 36000
+      registry: https://registry.npm.taobao.org
+      xigua_front:
+        code: git@github.com:eumlab/xigua_front.git
+        branch: develop
+        docker_user:
+          liuxingqi:
+            user_port: 6000
+          xiaoheng:
+            user_port: 6001
+          cuizaiyong:
+            user_port: 6002
+          huangpan:
+            user_port: 6003
+          jevan:
+            user_port: 6004
+          zhangjiayuan:
+            user_port: 6005
+          leihong:
+            user_port: 6006
+          liujie:
+            user_port: 6007
+          pikun:
+            user_port: 6008
+          shushi:
+            user_port: 6009
+          zhanghaoran:
+            user_port: 6010
+          zhaoliangyu:
+            user_port: 6011
+          xiexin:
+            user_port: 6012
+          maxiaolong:
+            user_port: 6013
+
+test:
+
+production:
