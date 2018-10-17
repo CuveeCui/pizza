@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{62:function(n,e,t){"use strict";t.r(e),t.d(e,"default",function(){return h});var i=t(10),r=t.n(i),o=t(11),u=t.n(o),a=t(12),c=t.n(a),s=t(13),l=t.n(s),p=t(14),d=t.n(p),f=t(1),w=t.n(f),h=function(n){function e(){return r()(this,e),c()(this,l()(e).call(this))}return d()(e,n),u()(e,[{key:"render",value:function(){return w.a.createElement("div",{className:"login"},"login page")}}]),e}(w.a.Component)}}]);
-//# sourceMappingURL=login.31b09349.js.map
