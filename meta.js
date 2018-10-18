@@ -26,6 +26,12 @@ module.exports = {
       name: 'sentry',
       message: 'Use sentry to your code?',
       default: true
+    },
+    'sensor': {
+      type: 'confirm',
+      name: 'sensor',
+      message: 'Use sensor to your code?',
+      default: true
     }
   },
   filters: {
