@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import App from './App';
+{{#sentry}}
 import * as Sentry from '@sentry/browser';
 
 if (NODE_ENV && NODE_ENV === 'production') {
@@ -9,7 +10,7 @@ if (NODE_ENV && NODE_ENV === 'production') {
     release: 'xigua_users'
   })
 }
-
+{{/sentry}}
 ReactDom.render(
   <App />,
   document.getElementById('root')
