@@ -31,7 +31,7 @@ module.exports = {
   filters: {
 
   },
-  skips: [ 'meta.js', 'server.js', '.gitignore' ],
+  skips: [ 'meta.js', 'server.js', '.gitignore', 'yarn-error.log' ],
   done: () => {
 
   }
