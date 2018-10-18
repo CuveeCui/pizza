@@ -28,8 +28,10 @@ module.exports = {
       default: true
     }
   }
+  filters: {
 
-  ,
+  },
+  skips: [ 'meta.js', 'server.js', '.gitignore' ],
   done: () => {
 
   }

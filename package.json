@@ -1,7 +1,7 @@
 {
-  "name": "xigua_users",
+  "name": "{{project_name}}",
   "version": "1.0.0",
-  "description": "西瓜创客面向用户的一个前端项目",
+  "description": "{{description}}",
   "main": "src/main.js",
   "sideEffects": false,
   "scripts": {
@@ -15,7 +15,7 @@
     "react",
     "axios"
   ],
-  "author": "cuizaiyong",
+  "author": "{{author}}",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",

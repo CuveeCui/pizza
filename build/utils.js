@@ -32,14 +32,12 @@ class Utils {
 
     /**
      * @desc: total loaders handler
-     * @returns {T[]}
      */
     initLoaders() {
         return Array.prototype.concat([this.createLintingRule()], [...this.loaders]);
     }
     /**
      * @desc: style handle
-     * @returns {{test: RegExp, use: *[]}}
      */
     styleHandler() {
         this.loaders.push(
@@ -57,7 +55,6 @@ class Utils {
 
     /**
      * @desc: js handler
-     * @returns {{test: RegExp, use: {loader: string, include: *, options: {compact: boolean}}[]}}
      */
     jsHandler() {
         this.loaders.push(
@@ -78,7 +75,6 @@ class Utils {
 
     /**
      * @desc: img handler
-     * @returns {{test: RegExp[], loader: String, options: {limit: number, name: string}}}
      */
     imgHandler() {
         this.loaders.push({
@@ -92,7 +88,6 @@ class Utils {
     }
     /**
      * @desc：postcss options
-     * @returns {{loader: string, options: {indent: string, plugins: *[]}}}
      */
     static postCss() {
         return {
@@ -116,7 +111,6 @@ class Utils {
     }
     /**
      * @desc: css options
-     * @returns {{loader: string, options: {importLoaders: number, minimize: boolean, sourceMap: boolean}}}
      */
     static css() {
         return {
@@ -131,7 +125,6 @@ class Utils {
 
     /**
      * @desc: eslint
-     * @returns {{test: RegExp, loader: string, enforce: boolean, include: String, options: {formatter: *}}}
      */
     createLintingRule() {
         return {
