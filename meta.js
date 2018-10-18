@@ -27,7 +27,7 @@ module.exports = {
       message: 'Use sentry to your code?',
       default: true
     }
-  }
+  },
   filters: {
 
   },
