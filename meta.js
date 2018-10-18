@@ -29,10 +29,17 @@ module.exports = {
     }
   },
   filters: {
-
+    'meta.js': true,
+    'server.js': true,
+    '.gitignore': true,
+    'test/*': true,
+    'test/*/*': true,
+    'sentry.properties': 'sentry',
+    'yarn-error.log': true
   },
-  skips: [ 'meta.js', 'server.js', '.gitignore', 'yarn-error.log' ],
-  done: () => {
+  skips: [],
+  success: () => {
 
-  }
+  }    
+  
 }

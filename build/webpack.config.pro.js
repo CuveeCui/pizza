@@ -79,6 +79,7 @@ const proConfig = merge(
       new webpack.DefinePlugin({
         'NODE_ENV': process.env.NODE_ENV ? `"${process.env.NODE_ENV}"` : "'production'"
       }),
+      {{#sentry}}
       new SentryWebpackPlugin({
         include: utils.resolve('dist/static/js'),
         ignoreFile: '.sentrycliignore',
@@ -87,6 +88,7 @@ const proConfig = merge(
         release: 'xigua_users',
         sourceMapReference: true
       })
+      {{/sentry}}
     ]
   }
 )
@@ -113,5 +115,5 @@ const compiler = webpack(proConfig, (err, stats) => {
     '  Tip: built files are meant to be served over an HTTP server.\n' +
     '  Opening index.html over file:// won\'t work.\n'
   ));
-  require('child_process').exec(`rm -rf ${utils.resolve('dist')}/js/*.js.map`);
+  //require('child_process').exec(`rm -rf ${utils.resolve('dist')}/js/*.js.map`);
 });
