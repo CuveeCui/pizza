@@ -45,18 +45,24 @@ module.exports = {
   },
   skips: [],
   success: (to,logger) => {
-    require('child_process').exec(
-      `
-      cd ${to} \n 
-      yarn install --registry=https://registry.npm.taobao.org \n
-      `,
-      (err, stdout, stderr) => {
-        if (err) logger.fatal(err);
-        logger.success(stdout);
-        logger.log(`To start: \n yarn start or yarn run dev`);
-        logger.log(`To build: \n yarn run build`);
-      }
-    )
+    return new Promise((resolve,reject) => {
+      require('child_process').exec(
+        `
+        cd ${to} \n 
+        yarn install --registry=https://registry.npm.taobao.org \n
+        `,
+        (err, stdout, stderr) => {
+          if (err) {
+            logger.fatal(err);
+            reject(err);
+          }
+          logger.success(stdout);
+          logger.log(`To start: \n yarn start or yarn run dev`);
+          logger.log(`To build: \n yarn run build`);
+          resolve()
+        }
+      )
+    })
   }    
   
 }
