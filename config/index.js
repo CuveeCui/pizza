@@ -4,7 +4,8 @@ module.exports = {
     publicPath: '/',
     directory: 'static',
     proxy: {},
-    open: true
+    open: true,
+    host: '127.0.0.1'
   },
   build: {
     publicPath: '/',

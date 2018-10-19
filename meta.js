@@ -57,8 +57,8 @@ module.exports = {
             reject(err);
           }
           logger.success(stdout);
-          logger.log(`To start: \n yarn start or yarn run dev`);
-          logger.log(`To build: \n yarn run build`);
+          logger.log(`To start: yarn start or yarn run dev`);
+          logger.log(`To build: yarn run build`);
           resolve()
         }
       )

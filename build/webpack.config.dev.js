@@ -12,6 +12,7 @@ const options = {
   contentBase: utils.resolve('dist'),
   compress: true,
   hot: true,
+  host: params.dev.host,
   port: params.dev.port,
   inline: true,
   historyApiFallback: {
