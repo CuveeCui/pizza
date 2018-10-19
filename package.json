@@ -106,13 +106,13 @@
     {{#sentry}}
     "@sentry/browser": "4.1.1",
     {{/sentry}}
+    {{#sensor}}
+    "sa-sdk-javascript": "^1.11.9",
+    {{/sensor}}
     "axios": "^0.18.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^4.3.1",
-    {{#sensor}}
-    "sa-sdk-javascript": "^1.11.9"
-    {{/sensor}}
+    "react-router-dom": "^4.3.1"
   }
 }
