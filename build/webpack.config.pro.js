@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ora = require('ora');
 const chalk = require('chalk');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const config = require('./webpack.config.base');
 const utils = new Utils('production');
 {{#sentry}}
@@ -13,6 +14,7 @@ const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 {{/sentry}}
 const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 const params = require('../config');
 const proConfig = merge(
   config,
@@ -30,7 +32,8 @@ const proConfig = merge(
           cache: true,
           sourceMap: true,
           parallel: true
-        })
+        }),
+        new OptimizeCSSAssetsPlugin({})
       ],
       splitChunks: {
         cacheGroups: {
@@ -51,7 +54,8 @@ const proConfig = merge(
             enforce: true
           }
         }
-      }
+      },
+      runtimeChunk: true
     },
     module: {
       rules: [...utils.initLoaders()]
