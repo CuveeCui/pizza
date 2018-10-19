@@ -44,9 +44,12 @@ module.exports = {
     'yarn-error.log': true
   },
   skips: [],
-  success: (logger) => {
+  success: (to,logger) => {
     require('child_process').exec(
-      'yarn install --registry=https://registry.npm.taobao.org \n',
+      `
+      cd ${to} \n 
+      yarn install --registry=https://registry.npm.taobao.org \n
+      `,
       (err, stdout, stderr) => {
         if (err) logger.fatal(err);
         logger.success(stdout);
