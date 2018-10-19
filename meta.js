@@ -44,7 +44,7 @@ module.exports = {
     'yarn-error.log': true
   },
   skips: [],
-  success: (to,logger) => {
+  success: (name, to,logger) => {
     return new Promise((resolve,reject) => {
       require('child_process').exec(
         `
@@ -57,7 +57,7 @@ module.exports = {
             reject(err);
           }
           logger.success(stdout);
-          logger.log(`To start: yarn start or yarn run dev`);
+          logger.log(`To start: cd ${name} && yarn start or yarn run dev`);
           logger.log(`To build: yarn run build`);
           resolve()
         }
