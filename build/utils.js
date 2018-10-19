@@ -1,4 +1,4 @@
-const path = require('path');
+ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 class Utils {
     /**
@@ -34,7 +34,7 @@ class Utils {
      * @desc: total loaders handler
      */
     initLoaders() {
-        return Array.prototype.concat([this.createLintingRule()], [...this.loaders]);
+        return Array.prototype.concat([], [...this.loaders]);
     }
     /**
      * @desc: style handle
@@ -126,25 +126,20 @@ class Utils {
     /**
      * @desc: eslint
      */
-    createLintingRule() {
-        return {
-            test: /\.(js|jsx)$/,
-            loader: 'eslint-loader',
-            enforce: 'pre',
-            include: [this.resolve()],
-            options: {
-                formatter: require('eslint-friendly-formatter')
-            }
-        }
-    }
+    // createLintingRule() {
+    //     return {
+    //         test: /\.(js|jsx)$/,
+    //         loader: 'eslint-loader',
+    //         enforce: 'pre',
+    //         include: [this.resolve()],
+    //         options: {
+    //             formatter: require('eslint-friendly-formatter')
+    //         }
+    //     }
+    // }
 
 
 
-}
-
-if (require.main === module) {
-    const ins = new Utils();
-    console.log(ins.initLoaders());
 }
 
 exports = module.exports = Utils;

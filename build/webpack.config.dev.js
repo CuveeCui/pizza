@@ -11,7 +11,7 @@ const options = {
   contentBase: utils.resolve('dist'),
   compress: true,
   hot: true,
-  host: '127.0.0.1',
+  host: '0.0.0.0',
   inline: true,
   historyApiFallback: {
     disableDotRule: true
@@ -30,6 +30,7 @@ const mergeConfig = merge(config, {
   module: {
     rules: [...utils.initLoaders()]
   },
+  devServer: options,
   plugins: [
     new HtmlWebpackPlugin({
       template: utils.resolve('index.html'),
@@ -41,12 +42,6 @@ const mergeConfig = merge(config, {
     })
   ]
 });
-webpackDevServer.addDevServerEntrypoints(config, options);
-const compiler = webpack(mergeConfig);
-const server = new webpackDevServer(compiler, options);
+module.exports = mergeConfig;
 
-server.listen(5000, '127.0.0.1', () => {
-  console.log(chalk.green('Server is listening at 127.0.0.1:5000'));
-  // require('child_process').exec('open http://127.0.0.1:5000');
-});
 

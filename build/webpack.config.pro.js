@@ -10,6 +10,7 @@ const config = require('./webpack.config.base');
 const utils = new Utils('production');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const proConfig = merge(
   config,
   {
@@ -79,6 +80,10 @@ const proConfig = merge(
       new webpack.DefinePlugin({
         'NODE_ENV': process.env.NODE_ENV ? `"${process.env.NODE_ENV}"` : "'production'"
       }),
+      new CopyWebpackPlugin([{
+        from: utils.resolve('static'),
+        to: utils.resolve('dist/static')
+      }]),
       {{#sentry}}
       new SentryWebpackPlugin({
         include: utils.resolve('dist/static/js'),

@@ -6,13 +6,19 @@
   "sideEffects": false,
   "scripts": {
     "test": "jest",
-    "dev": "node build/webpack.config.dev.js",
+    "dev": "webpack-dev-server --config build/webpack.config.dev.js",
     "build": "node build/webpack.config.pro.js",
-    "start": "npm run dev"
+    "start": "yarn run dev"
   },
   "keywords": [
     "webpack4+",
     "react",
+    {{#sensor}}
+    "sensor",
+    {{/sensor}}
+    {{#sentry}}
+    "sentry",
+    {{/sentry}}
     "axios"
   ],
   "author": "{{author}}",
@@ -24,8 +30,10 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.1.2",
+    {{#sentry}}
     "@sentry/cli": "^1.36.1",
     "@sentry/webpack-plugin": "^1.6.1",
+    {{/sentry}}
     "autoprefixer": "^9.1.5",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -95,13 +103,16 @@
     ]
   },
   "dependencies": {
+    {{#sentry}}
     "@sentry/browser": "4.1.1",
+    {{/sentry}}
     "axios": "^0.18.0",
-    "koa": "^2.5.3",
-    "koa-static": "^5.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-loadable": "^5.5.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    {{#sensor}}
+    "sa-sdk-javascript": "^1.11.9"
+    {{/sensor}}
   }
 }
