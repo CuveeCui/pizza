@@ -31,7 +31,6 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.1.2",
     {{#sentry}}
-    "@sentry/cli": "^1.36.1",
     "@sentry/webpack-plugin": "^1.6.1",
     {{/sentry}}
     "autoprefixer": "^9.1.5",
