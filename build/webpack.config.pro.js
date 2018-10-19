@@ -11,14 +11,15 @@ const utils = new Utils('production');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const params = require('../config');
 const proConfig = merge(
   config,
   {
     mode: 'production',
     output: {
-      filename: 'static/js/[name].[chunkhash:8].js',
+      filename: `${params.build.directory}/js/[name].[chunkhash:8].js`,
       path: utils.resolve('dist'),
-      publicPath: '/'
+      publicPath: params.build.publicPath
     },
     devtool: 'source-map',
     optimization: {
@@ -72,7 +73,7 @@ const proConfig = merge(
         inject: true
       }),
       new MiniCssExtractPlugin({
-        filename: "static/css/[name].[contenthash:8].css"
+        filename: `${params.build.directory}/css/[name].[contenthash:8].css`
       }),
       new CleanWebpackPlugin(['dist'], {
         root: utils.resolve('./')

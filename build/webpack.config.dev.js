@@ -6,12 +6,13 @@ const Utils = require('./utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const utils = new Utils();
+const params = require('../config');
 
 const options = {
   contentBase: utils.resolve('dist'),
   compress: true,
   hot: true,
-  host: '0.0.0.0',
+  port: params.dev.port,
   inline: true,
   historyApiFallback: {
     disableDotRule: true
@@ -21,7 +22,9 @@ const options = {
     entrypoints: false,
     colors: true
   },
-  publicPath: '/'
+  publicPath: params.dev.publicPath,
+  proxy: params.dev.proxy,
+  open: params.dev.open
 };
 
 const mergeConfig = merge(config, {

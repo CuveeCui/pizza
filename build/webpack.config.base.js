@@ -1,13 +1,14 @@
 const Utils = require('./utils');
 const utils = new Utils();
+const params = require('../config');
 const config = {
   entry: {
     main: utils.resolve('src/main')
   },
   output: {
     path: utils.resolve('dist'),
-    filename: 'static/js/[name].[hash].js',
-    publicPath: '/'
+    filename: `${params.dev.directory}/js/[name].[hash].js`,
+    publicPath: params.dev.publicPath
   },
   resolve: {
     extensions: ['.js', '.scss', '.css'],
