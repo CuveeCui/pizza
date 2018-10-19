@@ -50,6 +50,8 @@ module.exports = {
       (err, stdout, stderr) => {
         if (err) logger.fatal(err);
         logger.success(stdout);
+        logger.log(`To start: \n yarn start or yarn run dev`);
+        logger.log(`To build: \n yarn run build`);
       }
     )
   }    
