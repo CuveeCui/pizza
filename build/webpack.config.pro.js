@@ -123,5 +123,7 @@ const compiler = webpack(proConfig, (err, stats) => {
     '  Tip: built files are meant to be served over an HTTP server.\n' +
     '  Opening index.html over file:// won\'t work.\n'
   ));
-  //require('child_process').exec(`rm -rf ${utils.resolve('dist')}/js/*.js.map`);
+  {{#sentry}}
+  require('child_process').exec(`rm -rf ${utils.resolve('dist')}/js/*.js.map`);
+  {{/sentry}}
 });
