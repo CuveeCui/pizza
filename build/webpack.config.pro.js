@@ -8,7 +8,9 @@ const ora = require('ora');
 const chalk = require('chalk');
 const config = require('./webpack.config.base');
 const utils = new Utils('production');
+{{#sentry}}
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
+{{/sentry}}
 const UglifyJSWebpackPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const params = require('../config');

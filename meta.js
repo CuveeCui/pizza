@@ -57,7 +57,7 @@ module.exports = {
             reject(err);
           }
           logger.success(stdout);
-          logger.log(`To start: \n\t\tcd ${name}\n\t\tyarn start or yarn run dev\n\t\tyarn run build`);
+          logger.log(`To start: \n\t\t\t\tcd ${name}\n\t\t\t\tyarn start or yarn run dev\n\t\t\t\tyarn run build`);
           resolve();
         }
       )
