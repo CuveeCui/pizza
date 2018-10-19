@@ -57,7 +57,9 @@ module.exports = {
             reject(err);
           }
           logger.success(stdout);
+          console.log();
           logger.log(`To start: cd ${name} && yarn start or yarn run dev`);
+          console.log();
           logger.log(`To build: yarn run build`);
           resolve()
         }
