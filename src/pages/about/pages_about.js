@@ -1,5 +1,5 @@
 import React from 'react';
-import './pages_login.scss';
+import '@/pages/about/pages_about.scss';
 
 export default class Login extends React.Component {
   constructor() {
@@ -8,7 +8,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className='login'>login page</div>
+      <div className='about'>About page</div>
     )
   }
 }

@@ -1,6 +1,6 @@
 import Fecth from '@/utils/utils_fetch';
 
-class Api_session extends Fecth {
+class Api_home extends Fecth {
   constructor() {
     super();
     this.instance = null;
@@ -11,17 +11,18 @@ class Api_session extends Fecth {
   * */
   static getInstance() {
     if (!this.instance) {
-      this.instance = new Api_session();
+      this.instance = new Api_home();
     }
     return this.instance;
   }
 
   /*
-  * login interface
+  * home interface
   * */
-  login(url, data = {}, options = {}) {
+  home(url, data = {}, options = {}) {
     return this.post.bind(url, data, options);
   }
 }
 
-export default Api_session.getInstance();
+console.log(Api_home.getInstance().home);
+export default Api_home.getInstance();

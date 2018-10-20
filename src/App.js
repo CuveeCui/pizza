@@ -6,23 +6,29 @@ import {
 } from 'react-router-dom';
 
 import router from '@/router/router';
-
+import '@/App.scss';
+import api from '@/api/api_home';
+import logo from '@/public/img/logo.f6560243.png';
 export default class App extends React.Component {
   constructor() {
     super()
   }
   render() {
+
     return (
       <Router>
         <div>
-          <div className={logo}>
-
+          <div className='logo'>
+            <img src={logo} alt=""/>
           </div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
+          <ul className='route'>
+            <li><Link to='/home'>Home</Link></li>
+            <li><Link to='/link'>Link</Link></li>
+            <li><Link to='/about'>About</Link></li>
           </ul>
-          <hr/>
-          <Route exact path="/" component={router.login.login}/>
+          <Route exact path="/home" component={router.home.home}/>
+          <Route exact path="/link" component={router.link.link}/>
+          <Route exact path="/about" component={router.about.about}/>
         </div>
       </Router>
     )
