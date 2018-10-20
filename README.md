@@ -92,8 +92,8 @@ build: {
 ### deploy
 ```
 - deploy
-- front-deploy.py
-- front-deploy.yml
+    - front-deploy.py
+    - front-deploy.yml
 ```
 为了解决测试环境同一项目的多人部署，在测试环境的部署当中，采用docker部署。执行以下命令：
 ```
