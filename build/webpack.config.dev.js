@@ -39,7 +39,8 @@ const mergeConfig = merge(config, {
     new HtmlWebpackPlugin({
       template: utils.resolve('index.html'),
       filename: 'index.html',
-      favicon: utils.resolve('static/img/favicon.03f39ec0.ico')
+      favicon: utils.resolve('static/img/favicon.03f39ec0.ico'),
+      title: 'Xigua App'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
