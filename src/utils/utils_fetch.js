@@ -3,7 +3,7 @@ import axios from 'axios';
 /*
 * fetch base class
 * */
-class Fetch {
+class Utils_fetch {
   /*
   * build fetch methods, include `get`、`post`、`del`、`put`
   * */
@@ -86,5 +86,5 @@ class Fetch {
   }
 }
 
-export default Fetch;
+export default Utils_fetch;
 

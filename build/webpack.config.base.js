@@ -13,13 +13,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.scss', '.css'],
     alias: {
-      '@': utils.resolve(),
-      'api': utils.resolve('src/api'),
-      'components': utils.resolve('src/components'),
-      'pages': utils.resolve('src/pages'),
-      'router': utils.resolve('src/router'),
-      'utils': utils.resolve('src/utils'),
-      'public': utils.resolve('src/public')
+      '@': utils.resolve()
     }
   },
   node: {

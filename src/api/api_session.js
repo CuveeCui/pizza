@@ -1,6 +1,6 @@
-import Fecth from 'utils/fetch';
+import Fecth from '@/utils/utils_fetch';
 
-class Session extends Fecth {
+class Api_session extends Fecth {
   constructor() {
     super();
     this.instance = null;
@@ -11,7 +11,7 @@ class Session extends Fecth {
   * */
   static getInstance() {
     if (!this.instance) {
-      this.instance = new Session();
+      this.instance = new Api_session();
     }
     return this.instance;
   }
@@ -24,4 +24,4 @@ class Session extends Fecth {
   }
 }
 
-export default Session.getInstance();
+export default Api_session.getInstance();

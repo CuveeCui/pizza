@@ -1,5 +1,5 @@
 import React from 'react';
-import 'public/scss/login';
+import './pages_login.scss';
 
 export default class Login extends React.Component {
   constructor() {

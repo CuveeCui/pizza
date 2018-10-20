@@ -3,7 +3,7 @@ import {
   shallow
 } from 'enzyme';
 
-import Login from '../../src/pages/login';
+import Login from '../../src/pages/login/pages_login';
 
 describe('login component', function() {
   it('should have class "login"', function() {
