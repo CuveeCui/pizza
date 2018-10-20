@@ -38,7 +38,8 @@ const mergeConfig = merge(config, {
   plugins: [
     new HtmlWebpackPlugin({
       template: utils.resolve('index.html'),
-      filename: 'index.html'
+      filename: 'index.html',
+      favicon: utils.resolve('static/img/favicon.03f39ec0.ico')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
