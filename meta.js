@@ -26,7 +26,6 @@ module.exports = {
   filters: {
     'meta.js': true,
     'server.js': true,
-    '.gitignore': false,
     'test/*': true,
     'test/*/*': true,
     'sentry.properties': 'sentry',
