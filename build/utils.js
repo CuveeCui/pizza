@@ -67,7 +67,7 @@ class Utils {
     this.loaders.push(
       {
         test: /\.(js|jsx)$/,
-        include: [this.resolve(), this.resolve('node_modules/axios')],
+        include: [this.resolve(), this.resolve('node_modules/axios/index.js')],
         use:
           {
             loader: require.resolve('babel-loader'),
