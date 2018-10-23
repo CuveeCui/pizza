@@ -21,6 +21,12 @@ module.exports = {
       name: 'sensor',
       message: 'Use sensor to your code?',
       default: true
+    },
+    'ie': {
+      type: 'confirm',
+      name: 'ie',
+      message: 'Compatible your code to IE?',
+      default: false
     }
   },
   filters: {
