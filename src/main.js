@@ -1,3 +1,7 @@
+import 'core-js/es6/Map';
+import 'core-js/es6/Set';
+import 'core-js/es6/Object';
+import 'raf/polyfill';
 import React from 'react';
 import ReactDom from 'react-dom';
 import App from './App';
