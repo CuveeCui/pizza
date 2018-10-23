@@ -81,6 +81,7 @@ class Utils_fetch {
       } else {
         originData = Object.assign(initData, {data}, options)
       }
+      originData.url = url;
       return this.fetch(originData);
     }
   }

@@ -20,9 +20,14 @@ class Api_home extends Fecth {
   * home interface
   * */
   home(url, data = {}, options = {}) {
-    return this.post.bind(url, data, options);
+    return this.post(url, data, options);
+  }
+  /*
+  * test interface
+  */
+  test(url, data = {}, options = {}) {
+    return this.get(url, data, options);
   }
 }
 
-console.log(Api_home.getInstance().home);
 export default Api_home.getInstance();
