@@ -1,8 +1,10 @@
+{{#ie}}
 import 'core-js/es6/Map';
 import 'core-js/es6/Set';
 import 'core-js/es6/Promise';
 import 'core-js/es6/Object';
 import 'raf/polyfill';
+{{/ie}}
 import React from 'react';
 import ReactDom from 'react-dom';
 import App from './App';
