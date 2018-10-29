@@ -15,7 +15,7 @@ import * as Sentry from '@sentry/browser';
 import sa from 'sa-sdk-javascript';
 sa.init({
   server_url: 'http://ebizdemo.datasink.sensorsdata.cn/sa?token=xxxx'
-})
+});
 window.sa = sa;
 {{/sensor}}
 
@@ -24,7 +24,7 @@ if (NODE_ENV && NODE_ENV === 'production') {
   Sentry.init({
     dsn: 'https://xxxx@sentry.io/xxx',
     release: 'xxxx'
-  })
+  });
 }
 {{/sentry}}
 ReactDom.render(

@@ -3,7 +3,7 @@ import '@/pages/link/pages_link.scss';
 
 export default class Login extends React.Component {
   constructor() {
-    super()
+    super();
   }
 
   render() {
@@ -14,6 +14,6 @@ export default class Login extends React.Component {
           <li><a href="https://xiguacity.cn/admin" target='_blank'>西瓜后台</a></li>
         </ul>
       </div>
-    )
+    );
   }
 }

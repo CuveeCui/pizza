@@ -11,12 +11,12 @@ import api from '@/api/api_home';
 api.test('http://10.254.4.41:5002/log/api/v1.0/test').then(res => {
   console.log(res.data);
 }).catch(e => {
-  console.log(err);
+  console.log(e);
 });
 import logo from '@/public/img/logo.f6560243.png';
 export default class App extends React.Component {
   constructor() {
-    super()
+    super();
   }
   render() {
 
@@ -36,6 +36,6 @@ export default class App extends React.Component {
           <Route exact path="/about" component={router.about.about}/>
         </div>
       </Router>
-    )
+    );
   }
 }

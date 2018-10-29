@@ -46,7 +46,7 @@ class Utils_fetch {
     }, err => {
       // request error, unified handle
 
-      return Promise.reject(err)
+      return Promise.reject(err);
     });
 
     return instance;
@@ -77,13 +77,13 @@ class Utils_fetch {
     return (url, data, options) => {
       let originData;
       if (type === 'get') {
-        originData = Object.assign(initData, {params: data}, options)
+        originData = Object.assign(initData, {params: data}, options);
       } else {
-        originData = Object.assign(initData, {data}, options)
+        originData = Object.assign(initData, {data}, options);
       }
       originData.url = url;
       return this.fetch(originData);
-    }
+    };
   }
 }
 
