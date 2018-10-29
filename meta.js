@@ -27,6 +27,12 @@ module.exports = {
       name: 'ie',
       message: 'Compatible your code to IE?',
       default: false
+    },
+    'eslint': {
+      type: 'confirm',
+      name: 'eslint',
+      message: 'Use eslint to your code?',
+      default: true
     }
   },
   filters: {
@@ -35,6 +41,7 @@ module.exports = {
     'test/*': true,
     'test/*/*': true,
     'sentry.properties': 'sentry',
+    '.eslintrc.js': 'eslint',
     'yarn-error.log': true
   },
   skips: [],

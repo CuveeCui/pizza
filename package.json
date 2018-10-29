@@ -18,7 +18,10 @@
     {{#sentry}}
     "sentry",
     {{/sentry}}
-    "axios"
+    "axios",
+    {{#eslint}}
+    "eslint"
+    {{/eslint}}
   ],
   "author": "{{author}}",
   "license": "ISC",
@@ -32,6 +35,9 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    {{#eslint}}
+    "babel-eslint": "^10.0.1",
+    {{/eslint}}
     {{#sentry}}
     "@sentry/webpack-plugin": "^1.6.1",
     {{/sentry}}
@@ -43,6 +49,12 @@
     "core-js": "^2.5.7",
     {{/ie}}
     "css-loader": "^1.0.0",
+    {{eslint}}
+    "eslint": "^5.7.0",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    {{/eslint}}
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.3",
