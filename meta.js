@@ -33,6 +33,12 @@ module.exports = {
       name: 'eslint',
       message: 'Use eslint to your code?',
       default: true
+    },
+    'docker': {
+      type: 'confirm',
+      name: 'docker',
+      message: 'Use docker to deploy you item?',
+      default: true
     }
   },
   filters: {
@@ -42,7 +48,10 @@ module.exports = {
     'test/*/*': true,
     'sentry.properties': 'sentry',
     '.eslintrc.js': 'eslint',
-    'yarn-error.log': true
+    'yarn-error.log': true,
+    '.dockerignore': 'docker',
+    'Dockerfile': 'docker',
+    'nginx.conf': 'docker'
   },
   skips: [],
   success: (name, to,logger) => {
