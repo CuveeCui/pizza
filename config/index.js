@@ -3,7 +3,13 @@ module.exports = {
     port: 5000,
     publicPath: '/',
     directory: 'static',
-    proxy: {},
+    proxy: {
+      '/admin': {
+        target: 'https://www.xiguacity.cn',
+        changeOrigin: true,
+        secure: false
+      }
+    },
     open: true,
     host: '127.0.0.1'
   },
