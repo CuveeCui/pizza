@@ -1,10 +1,25 @@
-FROM nginx
+FROM xigua_front:1.0.0
 
-ENV PROJECY_PATH=/usr/local/front/
+ENV PROJECT_PATH=/var/www/front/
 
-VOLUME ./nginx.conf:/etc/nginx/nginx.conf
+COPY . ${PROJECT_PATH}
 
-COPY .  ${PROJECY_PATH}
+WORKDIR ${PROJECT_PATH}
 
-WORKDIR ${PROJECY_PATH}
+RUN yarn install --registry=https://registry.npm.taobao.org/
+
+RUN yarn build
+#FROM nginx
+#
+#RUN apt-get update
+#
+#RUN echo "Y" | apt-get install curl
+#
+#RUN echo "Y" | apt-get install gnupg
+#
+#RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+#
+#RUN apt-get install -y nodejs && npm install yarn -g
+#
+#RUN /etc/init.d/nginx start
 
