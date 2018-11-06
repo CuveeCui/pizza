@@ -39,13 +39,19 @@ module.exports = {
       name: 'docker',
       message: 'Use docker to deploy you item?',
       default: true
+    },
+    'test': {
+      type: 'confirm',
+      name: 'test',
+      message: 'Use test to your item?',
+      default: true
     }
   },
   filters: {
     'meta.js': true,
     'server.js': true,
-    'test/*': true,
-    'test/*/*': true,
+    'test/*': 'test',
+    'test/*/*': 'test',
     'sentry.properties': 'sentry',
     '.eslintrc.js': 'eslint',
     'yarn-error.log': true,
