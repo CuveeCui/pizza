@@ -27,37 +27,13 @@ module.exports = {
       name: 'ie',
       message: 'Compatible your code to IE?',
       default: false
-    },
-    'eslint': {
-      type: 'confirm',
-      name: 'eslint',
-      message: 'Use eslint to your code?',
-      default: true
-    },
-    'docker': {
-      type: 'confirm',
-      name: 'docker',
-      message: 'Use docker to deploy you item?',
-      default: true
-    },
-    'test': {
-      type: 'confirm',
-      name: 'test',
-      message: 'Use test to your item?',
-      default: true
     }
   },
   filters: {
     'meta.js': true,
     'server.js': true,
-    'test/*': 'test',
-    'test/*/*': 'test',
     'sentry.properties': 'sentry',
-    '.eslintrc.js': 'eslint',
-    'yarn-error.log': true,
-    '.dockerignore': 'docker',
-    'Dockerfile': 'docker',
-    'nginx.conf': 'docker'
+    'yarn-error.log': true
   },
   skips: [],
   success: (name, to,logger) => {

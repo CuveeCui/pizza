@@ -3,22 +3,24 @@
     ["env", {
       "modules": false,
       "targets": {
-        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+        "browsers": ["> 1%", "last 5 versions", "not ie <= 8"]
       }
     }],
-    'react'
+    "react"
   ],
   "plugins": [
     ["transform-runtime", {
-      "helpers": false, // defaults to true; v6.12.0 (2016-07-27) 新增;
-      "polyfill": true, // defaults to true
-      "regenerator": true, // defaults to true
-      // v6.15.0 (2016-08-31) 新增
-      // defaults to "babel-runtime"
-      // 可以这样配置
-      // moduleName: path.dirname(require.resolve('babel-runtime/package'))
+      "helpers": false, 
+      "polyfill": true,
+      "regenerator": true,
       "moduleName": "babel-runtime"
     }],
     "syntax-dynamic-import"
-  ]
+  ],
+  "env": {
+      "test": {
+        "presets": [["env"], "react"]
+    }
+  }
+
 }

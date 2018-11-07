@@ -1,7 +1,14 @@
+const env = process.env.NODE_ENV;
+const config = require('./config');
 module.exports = {
   parser: 'babel-eslint',
   plugins: [
     'react'
+  ],
+  extends: [
+    "standard",
+    // "eslint:recommended",
+    "plugin:react/recommended"
   ],
   env: {
     es6: true,
@@ -12,9 +19,5 @@ module.exports = {
   globals: {
     'NODE_ENV': true
   },
-  rules: {
-    // add your rules here
-    'semi': ['error', 'always'],
-    'no-undef': 'error'
-  }
+  rules: env === 'production' ? config.build.rules : config.dev.rules
 };

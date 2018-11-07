@@ -1,8 +1,12 @@
 module.exports = {
   dev: {
+    // 本地服务端口号
     port: 5000,
+    // 本地服务静态资源地址
     publicPath: '/',
+    // 本地服务所有静态资源的上层目录
     directory: 'static',
+    // 代理配置
     proxy: {
       '/admin': {
         target: 'https://www.xiguacity.cn',
@@ -10,11 +14,42 @@ module.exports = {
         secure: false
       }
     },
-    open: true,
-    host: '127.0.0.1'
+    // 是否打开浏览器
+    open: false,
+    // 本地服务地址
+    host: '127.0.0.1',
+    // 开发和测试的eslint规则
+    rules: {
+      'semi': ['error', 'always'],
+      'spaced-comment': 'off',
+      'eol-last': 'off',
+      'space-before-function-paren': 'off',
+      'padded-blocks': 'off',
+      'no-useless-constructor': 'off',
+      'no-multiple-empty-lines': 'off',
+      'object-curly-spacing': 'off',
+      'max-len': ['error', { 'code': 120 }],
+      'eqeqeq': 'error'
+    }
   },
   build: {
+    // 打包后静态资源引用的绝对地址
     publicPath: '/',
+    // 打包后静态资源的上层目录
     directory: 'static',
+    // 打包的eslint规则
+    rules: {
+      'semi': ['error', 'always'],
+      'spaced-comment': 'off',
+      'eol-last': 'off',
+      'space-before-function-paren': 'off',
+      'padded-blocks': 'off',
+      'no-useless-constructor': 'off',
+      'no-multiple-empty-lines': 'off',
+      'object-curly-spacing': 'off',
+      'max-len': ['error', { 'code': 120 }],
+      'eqeqeq': 'error',
+      'no-console': 'error'
+    }
   }
 }

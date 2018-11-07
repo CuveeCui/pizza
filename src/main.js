@@ -1,8 +1,8 @@
 {{#ie}}
-import 'core-js/es6/Map';
-import 'core-js/es6/Set';
-import 'core-js/es6/Promise';
-import 'core-js/es6/Object';
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+import 'core-js/es6/promise';
+import 'core-js/es6/object';
 import 'raf/polyfill';
 {{/ie}}
 import React from 'react';
