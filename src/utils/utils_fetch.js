@@ -3,7 +3,7 @@ import axios from 'axios';
 /*
 * fetch base class
 * */
-class Utils_fetch {
+class UtilsFetch {
   /*
   * build fetch methods, include `get`、`post`、`del`、`put`
   * */
@@ -29,15 +29,12 @@ class Utils_fetch {
 
     instance.interceptors.request.use(config => {
       // Request interception, unified configuration
-
-
       return config;
     }, err => {
       // request error, unified handle
 
       return Promise.reject(err);
     });
-
 
     instance.interceptors.response.use(res => {
       // response interception, unified configuration
@@ -87,5 +84,5 @@ class Utils_fetch {
   }
 }
 
-export default Utils_fetch;
+export default UtilsFetch;
 

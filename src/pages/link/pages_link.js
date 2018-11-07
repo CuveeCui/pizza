@@ -10,8 +10,8 @@ export default class Login extends React.Component {
     return (
       <div className='link'>
         <ul>
-          <li><a href="https://xiguacity.cn/" target='_blank'>西瓜主页</a></li>
-          <li><a href="https://xiguacity.cn/admin" target='_blank'>西瓜后台</a></li>
+          <li><a href="https://xiguacity.cn/" target='_blank' rel="noopener noreferrer">西瓜主页</a></li>
+          <li><a href="https://xiguacity.cn/admin" target='_blank' rel="noopener noreferrer">西瓜后台</a></li>
         </ul>
       </div>
     );

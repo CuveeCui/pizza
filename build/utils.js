@@ -37,9 +37,7 @@ class Utils {
    */
   initLoaders() {
     let eslint = [];
-    {{#eslint}}
     eslint.push(this.createLintingRule());
-    {{/eslint}}
     return Array.prototype.concat(eslint, [...this.loaders]);
   }
 
@@ -136,7 +134,6 @@ class Utils {
       }
     }
   }
-  {{#eslint}}
   /**
    * @desc: eslint
    */
@@ -147,11 +144,11 @@ class Utils {
           enforce: 'pre',
           include: [this.resolve()],
           options: {
-              formatter: require('eslint-friendly-formatter')
+              formatter: require('eslint-friendly-formatter'),
+              fix: process.env.NODE_ENV === 'production' ? true : false
           }
       }
   }
-  {{/eslint}}
 }
 
 exports = module.exports = Utils;

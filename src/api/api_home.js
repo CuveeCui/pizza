@@ -1,6 +1,6 @@
 import Fecth from '@/utils/utils_fetch';
 
-class Api_home extends Fecth {
+class ApiHome extends Fecth {
   constructor() {
     super();
     this.instance = null;
@@ -11,7 +11,7 @@ class Api_home extends Fecth {
   * */
   static getInstance() {
     if (!this.instance) {
-      this.instance = new Api_home();
+      this.instance = new ApiHome();
     }
     return this.instance;
   }
@@ -30,4 +30,4 @@ class Api_home extends Fecth {
   }
 }
 
-export default Api_home.getInstance();
+export default ApiHome.getInstance();

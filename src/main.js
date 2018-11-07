@@ -13,6 +13,7 @@ import * as Sentry from '@sentry/browser';
 {{/sentry}}
 {{#sensor}}
 import sa from 'sa-sdk-javascript';
+/*eslint camelcase: 'off'*/
 sa.init({
   server_url: 'http://ebizdemo.datasink.sensorsdata.cn/sa?token=xxxx'
 });
