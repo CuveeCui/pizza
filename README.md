@@ -1,11 +1,11 @@
-## xigua-cli
+## xigua_cli
 基于`webpack4+`，服务于**西瓜创客**的前端`react`单页面应用，以实现工程化的脚手架工具。
 ### Installation
 `Node.js`: >=8.x
 ```
-$ yarn global add xigua-cli
+$ yarn global add xigua_cli
 or
-$ npm install xigua-cli -g
+$ npm install xigua_cli -g
 ```
 ###Usage
 ```
@@ -29,6 +29,7 @@ $ xigua init <project-name> --local
 ? Project description - 项目的描述
 ? Use sentry to your code? (Y/n) - 是否使用sentry 默认true
 ? Use sensor to your code? (Y/n) - 是否使用sensor 默认是true
+? Compatible your code to IE? (Y/n) - 是否兼容IE9 默认是false
 ```
 ### build
 所有的 `build` 过程都是由 `webpack` 完成。
@@ -53,12 +54,14 @@ dev: {
     directory: 'static',        // 资源目录
     proxy: {},                  // 代理配置
     open: true,                 // 是否打开浏览器
-    host: '127.0.0.1'           // 本地服务地址
+    host: '127.0.0.1',          // 本地服务地址
+    rules: {}                   // 开发环境的eslint规则                                                
 },
 // 文件打包相关配置
 build: {
     publicPath: '/',            // 静态资源引用地址
     directory: 'static',        // 资源目录
+    rules: {}                   // 线上环境的eslint规则
 }
 }
 ```
@@ -71,23 +74,34 @@ build: {
         - loading       // loading组件
     - pages           // 页面入口
         - home          // home页面
-            - pages-home.js
-            - pages-home.scss
+            - pages_home.js
+            - pages_home.scss
         ...
     - public          // 公共资源
         - img
         - js
     - router         // 路由目录
         - home
-            - router-home.js
+            - router_home.js
         router.js      // 路由入口文件
     - utils          // 工具函数
-        - utils-fetch.js  // axios的上层封装
+        - utils_fetch.js  // axios的上层封装
     - App.js            // 项目总入口文件
     - App.scss
     - main.js           // 项目的根文件，webpack的入口文件
 ```
 命名规范： 需要体现出文件所在的目录
+
+### test
+- 项目组件测试
+```
+$ yarn test
+```
+- 组件测试
+```
+// 测试弹窗组件
+$ yarn ct src/components/prompt
+```
 
 ### deploy
 ```
