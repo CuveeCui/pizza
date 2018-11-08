@@ -3,7 +3,7 @@ import '@/pages/link/pages_link.scss';
 
 export default class Login extends React.Component {
   constructor() {
-    super()
+    super();
   }
 
   render() {
