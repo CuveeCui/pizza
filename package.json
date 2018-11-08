@@ -92,7 +92,9 @@
     ],
     "testMatch": [
       "<rootDir>/test/**/__tests__/**/*.{js,jsx,mjs}",
-      "<rootDir>/test/**/?(*.)(spec|test).{js,jsx,mjs}"
+      "<rootDir>/test/**/?(*.)(spec|test).{js,jsx,mjs}",
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
     "resolver": "jest-pnp-resolver",
     "setupFiles": [
