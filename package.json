@@ -7,7 +7,8 @@
     "test": "jest",
     "dev": "webpack-dev-server --config build/webpack.config.dev.js",
     "build": "node build/webpack.config.pro.js",
-    "start": "yarn run dev"
+    "start": "yarn run dev",
+    "ct": "node build/test.js"
   },
   "keywords": [
     "webpack4+",
@@ -40,6 +41,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.2.0",
     "chalk": "^2.4.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
@@ -74,6 +76,7 @@
     {{/ie}}
     "react-app-polyfill": "^0.1.3",
     "sass-loader": "^7.1.0",
+    "sinon": "^7.1.1",
     "style-loader": "^0.23.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.1",

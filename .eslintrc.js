@@ -7,9 +7,13 @@ module.exports = {
   ],
   extends: [
     "standard",
-    // "eslint:recommended",
     "plugin:react/recommended"
   ],
+  settings: {
+    react: {
+      version: '16.5'
+    }
+  },
   env: {
     es6: true,
     browser: true,
