@@ -14,24 +14,6 @@ class Prompt extends React.Component {
     super(props);
   }
   render() {
-    const promptWrapper = {
-      'position': 'fixed',
-      'width': '100%',
-      'height': '100%',
-      'left': 0,
-      'top': 0,
-      'backgroundColor': 'rgba(7,17,27,0.8)'
-    };
-    const promptContent = {
-      'position': 'absolute',
-      'width': 300,
-      'height': 400,
-      'left': '50%',
-      'top': '50%',
-      'margin-top': 100,
-      'transform': 'translateX(-50%)',
-      'backgroundColor': '#fff'
-    };
     return (
       <div className='prompt-wrapper'>
         <div className='prompt-content-wrapper'>

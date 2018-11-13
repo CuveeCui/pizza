@@ -1,4 +1,4 @@
-FROM xigua_front:1.0.0
+FROM registry.cn-beijing.aliyuncs.com/xiguacity/root-front:latest
 
 ENV PROJECT_PATH=/var/www/front/
 

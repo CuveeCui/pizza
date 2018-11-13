@@ -1,6 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const config = require('../config');
 class Utils {
   /**
    * @desc: construtor function
@@ -21,6 +21,7 @@ class Utils {
     this.styleHandler();
     this.jsHandler();
     this.imgHandler();
+    this.fontHandler();
   }
 
   /**
@@ -61,7 +62,19 @@ class Utils {
       )
     })
   }
-
+  /*
+   * font handler
+   */
+  fontHandler() {
+    this.loaders.push({
+        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: `${process.env.NODE_ENV === 'production' ? config.build.directory : config.dev.directory}/fonts/[name].[hash:7].[ext]`
+        }
+      })
+  }
   /**
    * @desc: js handler
    */
