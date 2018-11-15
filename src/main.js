@@ -14,10 +14,38 @@ import * as Sentry from '@sentry/browser';
 {{#sensor}}
 import sa from 'sa-sdk-javascript';
 /*eslint camelcase: 'off'*/
-sa.init({
-  server_url: 'http://ebizdemo.datasink.sensorsdata.cn/sa?token=xxxx'
-});
-window.sa = sa;
+if (NODE_ENV === 'production') {
+	sa.init({
+		name: 'sa',
+    web_url: 'xxxx',
+    server_url: 'xxxx',
+    source_channel:['c'],
+    show_log: false,
+    heatmap:{
+      clickmap:'default',
+      scroll_notice_map:'default',
+      loadTimeout: 3000,
+      scroll_delay_time: 4000
+    }
+	});
+	window.sa = sa;
+} else {
+	sa.init({
+		name: 'sa',
+    web_url: 'xxxx',
+    server_url: 'xxxx',
+    source_channel:['c'],
+    show_log: true,
+    heatmap:{
+      clickmap:'default',
+      scroll_notice_map:'default',
+      loadTimeout: 3000,
+      scroll_delay_time: 4000
+    }
+	});
+	window.sa = sa;
+}
+sa && sa.quick('autoTrack');
 {{/sensor}}
 
 {{#sentry}}
