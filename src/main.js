@@ -14,9 +14,10 @@ import * as Sentry from '@sentry/browser';
 {{#sensor}}
 import sa from 'sa-sdk-javascript';
 /*eslint camelcase: 'off'*/
+/*eslint key-spacing: 'off'*/
 if (NODE_ENV === 'production') {
-	sa.init({
-		name: 'sa',
+  sa.init({
+    name: 'sa',
     web_url: 'xxxx',
     server_url: 'xxxx',
     source_channel:['c'],
@@ -27,11 +28,11 @@ if (NODE_ENV === 'production') {
       loadTimeout: 3000,
       scroll_delay_time: 4000
     }
-	});
-	window.sa = sa;
+  });
+  window.sa = sa;
 } else {
-	sa.init({
-		name: 'sa',
+  sa.init({
+    name: 'sa',
     web_url: 'xxxx',
     server_url: 'xxxx',
     source_channel:['c'],
@@ -42,8 +43,8 @@ if (NODE_ENV === 'production') {
       loadTimeout: 3000,
       scroll_delay_time: 4000
     }
-	});
-	window.sa = sa;
+    });
+  window.sa = sa;
 }
 sa && sa.quick('autoTrack');
 {{/sensor}}
