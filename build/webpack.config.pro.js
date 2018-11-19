@@ -90,20 +90,22 @@ const proConfig = merge(
       new CopyWebpackPlugin([{
         from: utils.resolve('static'),
         to: utils.resolve('dist/static')
-      }]),
-      {{#sentry}}
-      new SentryWebpackPlugin({
-        include: utils.resolve('dist/static/js'),
-        ignoreFile: '.sentrycliignore',
-        ignore: [utils.resolve('node_modules'), utils.resolve('build')],
-        configFile: utils.resolve('sentry.properties'),
-        release: 'xigua_users',
-        sourceMapReference: true
-      })
-      {{/sentry}}
+      }])
     ]
   }
-)
+);
+{{#sentry}}
+if (process.env.NODE_ENV === 'production') {
+  proConfig.plugins.push(new SentryWebpackPlugin({
+    include: utils.resolve('dist/static/js'),
+    ignoreFile: '.sentrycliignore',
+    ignore: [utils.resolve('node_modules'), utils.resolve('build')],
+    configFile: utils.resolve('sentry.properties'),
+    release: 'xigua_users',
+    sourceMapReference: true
+  }))
+}
+{{/sentry}}
 const spinner = ora('building for production...');
 spinner.start();
 
