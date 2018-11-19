@@ -64,6 +64,7 @@ const proConfig = merge(
       new HtmlWebpackPlugin({
         template: utils.resolve('index.html'),
         filename: 'index.html',
+        path: `/${params.build.publicPath.replace(/\//g, '')}`,
         minify: {
           removeComments: true,
           collapseWhitespace: true,

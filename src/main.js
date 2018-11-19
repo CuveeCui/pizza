@@ -43,7 +43,7 @@ if (NODE_ENV === 'production') {
       loadTimeout: 3000,
       scroll_delay_time: 4000
     }
-    });
+  });
   window.sa = sa;
 }
 sa && sa.quick('autoTrack');
