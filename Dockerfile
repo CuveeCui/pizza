@@ -1,25 +1,22 @@
 FROM registry.cn-beijing.aliyuncs.com/xiguacity/root-front:latest
 
-ENV PROJECT_PATH=/var/www/front/
+ARG PROJECT_NAME
 
-COPY . ${PROJECT_PATH}
+ARG NODE_ENV
+
+ENV PROJECT_PATH=/var/www/$PROJECT_NAME/
+
+COPY ./package.json ${PROJECT_PATH}
 
 WORKDIR ${PROJECT_PATH}
 
-RUN yarn install --registry=https://registry.npm.taobao.org/
+RUN yarn config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
 
-RUN yarn build
-#FROM nginx
-#
-#RUN apt-get update
-#
-#RUN echo "Y" | apt-get install curl
-#
-#RUN echo "Y" | apt-get install gnupg
-#
-#RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-#
-#RUN apt-get install -y nodejs && npm install yarn -g
-#
-#RUN /etc/init.d/nginx start
+RUN yarn config set sentrycli_cdnurl https://npm.taobao.org/mirrors/sentry-cli
+
+RUN yarn install --registry=https://registry.npm.taobao.org
+
+COPY . ${PROJECT_PATH}
+
+RUN yarn build $NODE_ENV
 

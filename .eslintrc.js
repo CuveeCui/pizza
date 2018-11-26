@@ -1,4 +1,4 @@
-const env = process.env.NODE_ENV;
+const env = process.env;
 const config = require('./config');
 module.exports = {
   parser: 'babel-eslint',
@@ -21,7 +21,8 @@ module.exports = {
     jest: true
   },
   globals: {
-    'NODE_ENV': true
+    'NODE_ENV': true,
+    'releaseVersion': true
   },
-  rules: env === 'production' ? config.build.rules : config.dev.rules
+  rules: env.NODE_ENV === 'production' ? config.build.rules : config.dev.rules
 };

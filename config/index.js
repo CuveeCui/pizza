@@ -1,3 +1,11 @@
+const { resolve } = require('path');
+let env = process.env;
+const argvs = process.argv;
+if (argvs.length <= 2) {
+  env.NODE_ENV = 'development';
+} else {
+  env.NODE_ENV = argvs[argvs.length - 1].indexOf('pro') >= 0 ? 'production' : argvs[argvs.length - 1];
+}
 module.exports = {
   dev: {
     // 本地服务端口号
@@ -34,7 +42,9 @@ module.exports = {
   },
   build: {
     // 打包后静态资源引用的绝对地址
-    publicPath: '/',
+    publicPath: env.NODE_ENV === 'production'
+                  ? `https://m.xiguacity.cn/${resolve(__dirname, '../').split('/').reverse()[0]}/`
+                  : '/',
     // 打包后静态资源的上层目录
     directory: 'static',
     // 打包的eslint规则

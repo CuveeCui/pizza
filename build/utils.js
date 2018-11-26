@@ -101,11 +101,32 @@ class Utils {
   imgHandler() {
     this.loaders.push({
       test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-      loader: require.resolve('url-loader'),
-      options: {
-        limit: 10000,
-        name: 'static/media/[name].[hash:8].[ext]',
-      }
+      use: [
+        {
+          loader: require.resolve('url-loader'),
+          options: {
+            limit: 10000,
+            name: 'static/media/[name].[hash:8].[ext]',
+          }
+        },
+        {
+          loader: require.resolve('image-webpack-plugin'),
+          options: {
+            mozjpeg: {
+              enabled: false
+            },
+            optipng: {
+              enabled: true
+            },
+            gifsicle: {
+              enabled: false
+            },
+            webp: {
+              enabled: false
+            }
+          }
+        }
+      ]
     })
   }
 

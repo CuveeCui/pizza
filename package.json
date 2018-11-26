@@ -21,7 +21,9 @@
     {{/sentry}}
     "axios",
     "eslint",
-    "jest"
+    "jest",
+    "oss",
+    "compress"
   ],
   "author": "{{author}}",
   "license": "ISC",
@@ -61,10 +63,13 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "file-loader": "^2.0.0",
+    "glob": "^7.1.3",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
+    "image-webpack-loader": "^4.5.0",
     "jest": "^23.6.0",
     "jest-pnp-resolver": "^1.0.1",
+    "md5": "^2.2.1",
     "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.9.3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",

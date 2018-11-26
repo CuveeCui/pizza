@@ -53,7 +53,8 @@ sa && sa.quick('autoTrack');
 if (NODE_ENV && NODE_ENV === 'production') {
   Sentry.init({
     dsn: 'https://xxxx@sentry.io/xxx',
-    release: 'xxxx'
+    release: releaseVersion,
+    environment: NODE_ENV || 'development'
   });
 }
 {{/sentry}}
