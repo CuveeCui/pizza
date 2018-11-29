@@ -25,6 +25,11 @@ const env = process.env;
 const home = env.HOME;
 const params = require('../config');
 const projectName = resolvePath('../').split('/').reverse()[0];
+const redis = require('redis');
+const client = redis.createClient({
+  host: '172.17.190.242',
+  port: 6379
+});
 const proConfig = merge(
   config,
   {
@@ -150,13 +155,17 @@ function getItemName() {
 async function upload(dir = 'dist') {
   spinner.start('uploading static sources to oss...');
   // 判断有oss的json文件
-  if (!fs.existsSync(`${home}/.fe-config/oss.json`)) {
-    console.log(chalk.red('\ncan\'t find file oss.json'));
-    process.exit(1);
+  let oss;
+  try {
+    oss = await getOss();
+  } catch(e) {
+    console.log(chalk.red(`get oss error: ${e}`));
+    process.exit(0);
   }
+  const oss = await getOss();
   let options = {};
   options.commit = md5(Date.parse(new Date()));
-  options.client = new OSS(require(`${home}/.fe-config/oss.json`));
+  options.client = new OSS(JSON.parse(oss));
   try {
     const files = await distinctUploadedPic();
     options.distinctFiles = files.distinctFiles;
@@ -170,6 +179,7 @@ async function upload(dir = 'dist') {
   options.name = getItemName();
   await commitFiles(options);
   spinner.stop();
+  process.exit(0);
 }
 
 // 提交上传
@@ -194,22 +204,48 @@ async function commitFiles(options) {
 }
 
 // 重新写入upload.json
-function reWriteFiles(options) {
+async function reWriteFiles(options) {
+  try {
+    await reSaveFiles(options.newFiles);
+  }catch(e) {
+    console.log(chalk.red(`rewrite files error:${e}`))
+  }
+  return '';
+}
+//读取oss的配置
+function getOss() {
   return new Promise((resolve, reject) => {
-    fs.writeFile(
-      options.jsonPath,
-      JSON.stringify(options.distinctFiles),
-      {encoding: 'utf-8'},
-      err => {
-        if (err) {
-          reject(err);
-        }
-        resolve();
+    client.get('oss', (err, res) => {
+      if (err) {
+        reject(err);
       }
-    );
-  });
+      resolve(res);
+    })
+  })
 }
 
+//获取差异配置
+function getDistinctFiles() {
+  return new Promise((resolve, reject) => {
+    client.get(projectName, (err, res) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(res);
+    })
+  })
+}
+//储存新的差异文件
+function reSaveFiles(data) {
+  return new Promise((resolve, reject) => {
+    client.set(projectName, data, (err, res) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(res);
+    })
+  })
+}
 // 生成打包文件
 function compiler() {
   return new Promise((resolve, reject) => {
@@ -225,7 +261,7 @@ function compiler() {
 // 对比数据，查询修改后的数据
 function distinctUploadedPic() {
   return new Promise((resolve, reject) => {
-    glob(resolvePath(`../dist/${params.build.directory}/**/*.*`), (err, files) => {
+    glob(resolvePath(`../dist/${params.build.directory}/**/*.*`), async (err, files) => {
       if (err) {
         reject(err);
       }
@@ -233,15 +269,21 @@ function distinctUploadedPic() {
       const newFiles = files.map(item => {
         return item.replace(`${resolvePath('../dist')}`, '');``
       });
-      const jsonPath = `${home}/.fe-config/${projectName}-upload.json`;
+      let jsonPath;
+      try {
+        jsonPath = await getDistinctFiles();
+      }catch(e) {
+        console.log(chalk.red(`get distinct files error: ${e}`));
+        process.exit(0);
+      }
       // 判断是否存在upload.json
-      if (!fs.existsSync(jsonPath)) {
+      if (!jsonPath) {
         // 如果不存在，直接上传图片
         distinctFiles = newFiles;
       } else {
         // 如果存在，对比前后两次的变化数据
         // 获取之前的数据
-        const oldFiles = require(jsonPath);
+        const oldFiles = JSON.parse(jsonPath);
         distinctFiles = newFiles.filter(file => {
           return oldFiles.indexOf(file) < 0;
         });
