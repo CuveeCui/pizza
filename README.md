@@ -7,7 +7,7 @@ $ yarn global add xigua_cli
 or
 $ npm install xigua_cli -g
 ```
-###Usage
+### Usage
 ```
 $ xigua init <project-name>
 ```
@@ -103,13 +103,42 @@ $ yarn test
 $ yarn ct src/components/prompt
 ```
 
+### image compress
+> 框架支持打包过程，图片自动压缩（默认只压缩png）
+
+### auto oss
+> 框架支持打包后文件自动上传阿里云oss
+> 相同的文件不会重复上传到阿里云oss
 ### deploy
+> 建议采用`Jenkins`部署
+- 进入`Jenkins`页面，例如`jenkins.xiguacity.cn`
+- **测试环境**
 ```
-- deploy
-    - front-deploy.py
-    - front-deploy.yml
+// 项目名称
+PROJECT_NAME
+// 容器端口号
+PORT
+// git的分支
+BRANCH
+// docker镜像仓库名
+REGISTRY
 ```
-为了解决测试环境同一项目的多人部署，在测试环境的部署当中，采用docker部署。执行以下命令：
+考虑到，多人同时开发，使用端口号区分。（张三：6301，李四：6302）
+- **预发布环境**
 ```
-$ python front-deploy.py cuizaiyong
+// 项目名称
+PROJECT_NAME
+// 容器端口号
+PORT
+// docker镜像仓库名
+REGISTRY
 ```
+默认采用`master`或者`develop`分支，完全模拟线上环境。
+- **生产环境**
+```
+// 项目名称
+PROJECT_NAME
+```
+拉取预发布的`latest`镜像。
+- **回滚环境**
+
