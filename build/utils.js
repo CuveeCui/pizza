@@ -110,7 +110,7 @@ class Utils {
           }
         },
         {
-          loader: require.resolve('image-webpack-plugin'),
+          loader: require.resolve('image-webpack-loader'),
           options: {
             mozjpeg: {
               enabled: false
