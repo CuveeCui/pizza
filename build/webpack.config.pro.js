@@ -325,6 +325,8 @@ compiler().then(stats => {
 }).finally(() => {
   if (env.NODE_ENV === 'production') {
     upload();
+  } else {
+    process.exit(0);
   }
 });
 
