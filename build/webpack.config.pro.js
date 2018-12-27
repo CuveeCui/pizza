@@ -101,7 +101,8 @@ const proConfig = merge(
       }),
       new webpack.DefinePlugin({
         'NODE_ENV': env.NODE_ENV ? `"${env.NODE_ENV}"` : '"development"',
-        'releaseVersion': releaseVersion
+        'releaseVersion': releaseVersion,
+        'publicPath': params.build.publicPath
       }),
       new CopyWebpackPlugin([{
         from: utils.resolve('static'),
@@ -323,10 +324,11 @@ compiler().then(stats => {
 }).catch(e => {
   throw e;
 }).finally(() => {
-  if (env.NODE_ENV === 'production') {
-    upload();
-  } else {
-    process.exit(0);
-  }
+  // if (env.NODE_ENV === 'production') {
+  //   upload();
+  // } else {
+  //   process.exit(0);
+  // }
+  process.exit(0);
 });
 

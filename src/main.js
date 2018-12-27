@@ -13,15 +13,20 @@ import * as Sentry from '@sentry/browser';
 {{/sentry}}
 {{#sensor}}
 import sa from 'sa-sdk-javascript';
-/*eslint camelcase: 'off'*/
-/*eslint key-spacing: 'off'*/
+/* eslint camelcase: 'off' */
+/* eslint key-spacing: 'off' */
 if (NODE_ENV === 'production') {
+  /* global publicPath: true */
+  const baseUri = `${location.origin}/${publicPath}}`;
   sa.init({
     name: 'sa',
     web_url: 'xxxx',
     server_url: 'xxxx',
     source_channel:['c'],
     show_log: false,
+    is_single_page: true,
+    sdk_url: `${baseUri}/static/js/sensorsdata.min.js`,
+    heatmap_url: `${baseUri}/static/js/heatmap.min.js`,
     heatmap:{
       clickmap:'default',
       scroll_notice_map:'default',
@@ -37,6 +42,7 @@ if (NODE_ENV === 'production') {
     server_url: 'xxxx',
     source_channel:['c'],
     show_log: true,
+    is_single_page: true,
     heatmap:{
       clickmap:'default',
       scroll_notice_map:'default',
