@@ -47,7 +47,8 @@ const mergeConfig = merge(config, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'NODE_ENV': "'development'",
-      'releaseVersion': releaseVersion
+      'releaseVersion': releaseVersion,
+      'publicPath': params.dev.publicPath
     })
   ]
 });
@@ -58,12 +59,12 @@ function addNginxAlias() {
     resolve(__dirname, '../nginx.conf'),
     { encoding: 'utf-8' }
   );
-  const reg = /\<project\-name\>/g;
+  const reg = /<project-name>/g;
   if (reg.test(content)) {
     const projectName = resolve(__dirname, '../').split('/').reverse()[0];
     fs.writeFileSync(
       resolve(__dirname, '../nginx.conf'),
-      content.replace(/\<project\-name\>/g, projectName)
+      content.replace(/<project-name>/g, projectName)
     );
   }
 }
