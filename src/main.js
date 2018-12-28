@@ -36,7 +36,7 @@ const sensorConfig = {
     loadTimeout: 3000,
     scroll_delay_time: 4000
   }
-}
+};
 sa.init(sensorConfig);
 window.sa = sa;
 sa && sa.quick('autoTrack');
