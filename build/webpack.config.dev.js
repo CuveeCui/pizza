@@ -48,7 +48,7 @@ const mergeConfig = merge(config, {
     new webpack.DefinePlugin({
       'NODE_ENV': "'development'",
       'releaseVersion': releaseVersion,
-      'publicPath': params.dev.publicPath
+      'publicPath': `'${params.dev.publicPath}'`
     })
   ]
 });

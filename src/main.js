@@ -16,7 +16,7 @@ import sa from 'sa-sdk-javascript';
 /* eslint camelcase: 'off' */
 /* eslint key-spacing: 'off' */
 /* global publicPath: true */
-const baseUri = `${location.origin}/${publicPath}`;
+const baseUri = `${location.origin}${publicPath}`;
 const sensorConfig = {
   name: 'sa',
   source_channel:['c'],

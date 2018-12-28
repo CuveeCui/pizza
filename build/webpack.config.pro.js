@@ -102,7 +102,7 @@ const proConfig = merge(
       new webpack.DefinePlugin({
         'NODE_ENV': env.NODE_ENV ? `"${env.NODE_ENV}"` : '"development"',
         'releaseVersion': releaseVersion,
-        'publicPath': params.build.publicPath
+        'publicPath': `'${params.build.publicPath}'`
       }),
       new CopyWebpackPlugin([{
         from: utils.resolve('static'),

@@ -43,7 +43,7 @@ module.exports = {
   build: {
     // 打包后静态资源引用的绝对地址
     publicPath: env.NODE_ENV === 'production'
-                  ? `https://m.xiguacity.cn/${resolve(__dirname, '../').split('/').reverse()[0]}/`
+                  ? `/${resolve(__dirname, '../').split('/').reverse()[0]}/`
                   : '/',
     // 打包后静态资源的上层目录
     directory: 'static',
