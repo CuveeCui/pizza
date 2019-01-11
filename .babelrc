@@ -15,12 +15,24 @@
       "regenerator": true,
       "moduleName": "babel-runtime"
     }],
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    "transform-decorators-legacy",
+    "transform-class-properties"
   ],
   "env": {
-      "test": {
-        "presets": [["env"], "react"]
+    "test": {
+      "presets": [["env"], "react"]，
+      "plugins": [
+        ["transform-runtime", {
+          "helpers": false, 
+          "polyfill": true,
+          "regenerator": true,
+          "moduleName": "babel-runtime"
+        }],
+        "syntax-dynamic-import",
+        "transform-decorators-legacy",
+        "transform-class-properties"
+      ]
     }
   }
-
 }
