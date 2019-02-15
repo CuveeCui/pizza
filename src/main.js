@@ -24,7 +24,7 @@ const sensorConfig = {
   sdk_url: `${baseUri}static/js/sensorsdata.min.js`,
   heatmap_url: `${baseUri}static/js/heatmap.min.js`,
   show_log: true,
-  web_url: NODE_ENV === 'prodcution'
+  web_url: NODE_ENV === 'production'
     ? 'xxxx'
     : 'xxxx',
   server_url: NODE_ENV === 'production'
