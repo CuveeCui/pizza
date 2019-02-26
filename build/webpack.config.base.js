@@ -1,6 +1,7 @@
 const Utils = require('./utils');
 const utils = new Utils();
 const params = require('../config');
+const webpack = require('webpack');
 const config = {
   entry: {
     main: utils.resolve('src/main')
@@ -22,7 +23,10 @@ const config = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty',
-  }
+  },
+  plugins: [
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/)
+  ]
 };
 
 module.exports = config;

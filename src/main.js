@@ -22,20 +22,13 @@ const sensorConfig = {
   source_channel:['c'],
   is_single_page: true,
   sdk_url: `${baseUri}static/js/sensorsdata.min.js`,
-  heatmap_url: `${baseUri}static/js/heatmap.min.js`,
   show_log: true,
   web_url: NODE_ENV === 'production'
     ? 'xxxx'
     : 'xxxx',
   server_url: NODE_ENV === 'production'
     ? 'xxxx'
-    : 'xxxx',
-  heatmap:{
-    clickmap:'default',
-    scroll_notice_map:'default',
-    loadTimeout: 3000,
-    scroll_delay_time: 4000
-  }
+    : 'xxxx'
 };
 sa.init(sensorConfig);
 window.sa = sa;
